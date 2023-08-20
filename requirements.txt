@@ -1,0 +1,11 @@
+matplotlib==3.7.1
+mediapipe==0.10.3
+numpy==1.23.5
+opencv_contrib_python==4.8.0.76
+opencv_python==4.7.0.72
+pandas==2.0.2
+Pillow==10.0.0
+streamlit==1.25.0
+torch==2.0.1
+torch_geometric==2.3.1
+tqdm==4.65.0
