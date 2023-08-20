@@ -22,8 +22,8 @@ save_path = "Data\raw"
 device = torch.device('cuda' if torch.cuda.is_available() else "cpu")
 
 utils = AslUtils()
-# utils.create_train_csv(csv_path)
-# utils.concat_all_csv(csv_path, save_path)
+utils.create_train_csv(csv_path)
+utils.concat_all_csv(csv_path, save_path)
 
 
 root_pt_path = os.path.join(path, "Data/")
