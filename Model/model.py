@@ -1,6 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
-from torch_geometric.nn import GATConv, global_mean_pool
+from torch_geometric.nn import GATConv, global_mean_pool, global_max_pool
 
 
 class BaseModel(nn.Module):
@@ -17,7 +17,7 @@ class BaseModel(nn.Module):
         out = self.gat1(x, edge_index)
         out = F.relu(out)
         out = self.gat2(out, edge_index)
-        out = F.relu(out)
-        out = global_mean_pool(out, batch)
+        # out = global_mean_pool(out, batch)
+        out = global_max_pool(out, batch)
         out = self.linear1(out)
         return out

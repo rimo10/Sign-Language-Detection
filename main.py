@@ -1,3 +1,5 @@
+from torch_geometric.utils import add_self_loops
+import numpy as np
 import os
 import sys
 import torch
@@ -7,6 +9,11 @@ from src.utils import AslUtils
 from src.dataset import AslDataset
 from Model.model import BaseModel
 from src.train import TrainModel
+import mediapipe as mp
+import cv2
+import pandas as pd
+
+mp_hands = mp.solutions.hands
 
 path = os.getcwd()
 sys.path.append(path)
@@ -52,6 +59,3 @@ for epoch in range(num_epochs):
     test_acc.append(acc)
 
     print(f'Epoch : {epoch} | Test_Loss :{loss} | Accuracy :{acc}')
-
-model_path = os.path.join(path, "Model/base_model.pt")
-torch.save(model.state_dict(), model_path)
